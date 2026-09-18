@@ -1,0 +1,11 @@
+header {
+    background-color: #4A2E1B;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+}
