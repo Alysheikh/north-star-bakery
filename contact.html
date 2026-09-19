@@ -15,7 +15,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
+                <li><a href="products.html">Products <span id="tray-count-badge" class="tray-badge" style="display:none;">0</span></a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact &amp; Pre-Orders</a></li>
             </ul>
@@ -35,18 +35,21 @@
             <h2>Inquiry and Pre-Order Request Form</h2>
             <p>Please complete the form below to submit a pre-order request or ask a question. Note: Pre-orders require at least 48 hours notice prior to pickup.</p>
 
-            <form action="#" method="post">
+            <!-- Added id="preorder-form" and novalidate attribute -->
+            <form id="preorder-form" action="#" method="post" novalidate>
                 <fieldset>
                     <legend>Contact Information</legend>
                     
                     <p>
-                        <label for="full-name">Full Name (Required):</label><br>
-                        <input type="text" id="full-name" name="full_name" required placeholder="Jane Doe">
+                        <label for="customer-name">Full Name (Required):</label><br>
+                        <input type="text" id="customer-name" name="customer_name" placeholder="Jane Doe">
+                        <span id="customer-name-error" class="error-msg"></span>
                     </p>
 
                     <p>
-                        <label for="email-address">Email Address (Required):</label><br>
-                        <input type="email" id="email-address" name="email_address" required placeholder="janedoe@example.com">
+                        <label for="customer-email">Email Address (Required):</label><br>
+                        <input type="email" id="customer-email" name="customer_email" placeholder="janedoe@example.com">
+                        <span id="customer-email-error" class="error-msg"></span>
                     </p>
 
                     <p>
@@ -60,7 +63,7 @@
 
                     <p>
                         <label for="request-type">Request Type (Required):</label><br>
-                        <select id="request-type" name="request_type" required>
+                        <select id="request-type" name="request_type">
                             <option value="">-- Please Select an Option --</option>
                             <option value="pre-order">Bakery Pre-Order</option>
                             <option value="custom-cake">Custom Cake Consultation</option>
@@ -70,12 +73,13 @@
 
                     <p>
                         <label for="pickup-date">Preferred Pickup Date (Required for Pre-Orders):</label><br>
-                        <input type="date" id="pickup-date" name="pickup_date" required>
+                        <input type="date" id="pickup-date" name="pickup_date">
                     </p>
 
                     <p>
                         <label for="item-details">Item Details &amp; Quantities (Required):</label><br>
-                        <textarea id="item-details" name="item_details" rows="5" cols="40" required placeholder="Example: 2 Signature Sourdough Loaves, 6 Butter Croissants"></textarea>
+                        <textarea id="item-details" name="item_details" rows="5" cols="40" placeholder="Example: 2 Signature Sourdough Loaves, 6 Butter Croissants"></textarea>
+                        <span id="item-details-error" class="error-msg"></span>
                     </p>
 
                     <p>
@@ -83,6 +87,8 @@
                         <textarea id="allergy-notes" name="allergy_notes" rows="3" cols="40" placeholder="Mention any wheat, nut, dairy, or egg allergies here..."></textarea>
                     </p>
                 </fieldset>
+
+                <div id="form-status-message"></div>
 
                 <p>
                     <input type="submit" value="Submit Pre-Order Request">
@@ -95,6 +101,7 @@
         <p>&copy; 2026 North Star Bakery. All rights reserved.</p>
         <p>Contact: info@northstarbakery.com | (555) 019-2834</p>
     </footer>
-<script src="script.js" defer></script>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
